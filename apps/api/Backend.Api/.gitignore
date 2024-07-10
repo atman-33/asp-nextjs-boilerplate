@@ -1,0 +1,3 @@
+# dotnet build 生成ファイル
+bin/
+obj/
