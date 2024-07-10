@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "api/Backend.sln"
+	}
+}
