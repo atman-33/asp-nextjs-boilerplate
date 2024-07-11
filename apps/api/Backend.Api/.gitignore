@@ -1,3 +1,8 @@
 # dotnet build 生成ファイル
 bin/
 obj/
+
+# DB
+*.db
+*.db-shm
+*.db-wal

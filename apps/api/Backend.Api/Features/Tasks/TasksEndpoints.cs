@@ -1,4 +1,7 @@
-﻿using Backend.Api.Features.Tasks.Dtos;
+﻿using Backend.Api.Data;
+using Backend.Api.Features.Tasks.Dtos;
+using Backend.Api.Features.Tasks.Mapping;
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Api.Features.Tasks;
 
@@ -14,10 +17,19 @@ public static class TasksEndpoints
 
   public static RouteGroupBuilder MapTasksEndpoints(this WebApplication app)
   {
-    var group = app.MapGroup("tasks");
+    var group = app.MapGroup("tasks").WithParameterValidation();
 
     // GET /tasks
-    group.MapGet("/", () => tasks);
+    group.MapGet("/", async (BackendContext dbContext) =>
+    {
+      await dbContext.Tasks
+        .Include(task => task.TaskType) // NOTE: ナビゲーションプロパティを取得
+        .Select(task => task.ToTaskSummaryDto())
+        .AsNoTracking()
+        .ToListAsync();
+    });
+
+    // TODO: ここから変更が必要!!
 
     // GET /tasks/{id}
     group.MapGet("/{id}", (int id) =>
