@@ -36,3 +36,9 @@ dotnet ef migrations add InitialCreate --output-dir Data\Migrations
 ```powershell
 dotnet ef database update
 ```
+
+### 最新のマイグレーションを削除
+
+```powershell
+dotnet ef migrations remove
+```
