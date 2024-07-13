@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Api.Data.Migrations
 {
     [DbContext(typeof(BackendContext))]
-    [Migration("20240711142544_InitialCreate")]
+    [Migration("20240713110535_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace Backend.Api.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
 
-            modelBuilder.Entity("Backend.Api.Features.TaskTypes.Entities.TaskType", b =>
+            modelBuilder.Entity("Backend.Api.Features.TodoTypes.Entities.TodoType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,26 +38,26 @@ namespace Backend.Api.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TaskTypes");
+                    b.ToTable("TodoTypes");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 7, 11, 23, 25, 44, 567, DateTimeKind.Local).AddTicks(540),
+                            CreatedAt = new DateTime(2024, 7, 13, 20, 5, 35, 210, DateTimeKind.Local).AddTicks(9075),
                             Name = "Bug",
-                            UpdatedAt = new DateTime(2024, 7, 11, 23, 25, 44, 567, DateTimeKind.Local).AddTicks(550)
+                            UpdatedAt = new DateTime(2024, 7, 13, 20, 5, 35, 210, DateTimeKind.Local).AddTicks(9086)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 7, 11, 23, 25, 44, 567, DateTimeKind.Local).AddTicks(552),
+                            CreatedAt = new DateTime(2024, 7, 13, 20, 5, 35, 210, DateTimeKind.Local).AddTicks(9088),
                             Name = "Feature",
-                            UpdatedAt = new DateTime(2024, 7, 11, 23, 25, 44, 567, DateTimeKind.Local).AddTicks(552)
+                            UpdatedAt = new DateTime(2024, 7, 13, 20, 5, 35, 210, DateTimeKind.Local).AddTicks(9088)
                         });
                 });
 
-            modelBuilder.Entity("Backend.Api.Features.Tasks.Entities.Task", b =>
+            modelBuilder.Entity("Backend.Api.Features.Todos.Entities.Todo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -70,7 +70,7 @@ namespace Backend.Api.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("TaskTypeId")
+                    b.Property<int>("TodoTypeId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -78,20 +78,20 @@ namespace Backend.Api.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TaskTypeId");
+                    b.HasIndex("TodoTypeId");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("Todos");
                 });
 
-            modelBuilder.Entity("Backend.Api.Features.Tasks.Entities.Task", b =>
+            modelBuilder.Entity("Backend.Api.Features.Todos.Entities.Todo", b =>
                 {
-                    b.HasOne("Backend.Api.Features.TaskTypes.Entities.TaskType", "TaskType")
+                    b.HasOne("Backend.Api.Features.TodoTypes.Entities.TodoType", "TodoType")
                         .WithMany()
-                        .HasForeignKey("TaskTypeId")
+                        .HasForeignKey("TodoTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("TaskType");
+                    b.Navigation("TodoType");
                 });
 #pragma warning restore 612, 618
         }

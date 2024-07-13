@@ -1,5 +1,5 @@
 using Backend.Api.Data;
-using Backend.Api.Features.Tasks;
+using Backend.Api.Features.Todos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +10,9 @@ builder.Services.AddSqlite<BackendContext>(connString);
 var app = builder.Build();
 
 // NOTE: エンドポイントを設定
-app.MapTasksEndpoints();
+app.MapTodosEndpoints();
+
+// NOTE: データベースのマイグレーション
+await app.MigrateDbAsync();
 
 app.Run();

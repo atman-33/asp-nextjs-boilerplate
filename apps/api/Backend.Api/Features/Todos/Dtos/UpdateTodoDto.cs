@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Backend.Api.Features.Tasks.Dtos;
+namespace Backend.Api.Features.Todos.Dtos;
 
-public record class CreateTaskDto(
+public record class UpdateTodoDto(
   [Required][StringLength(50)] string Name,
-  int TaskTypeId
+  int TodoTypeId
 );

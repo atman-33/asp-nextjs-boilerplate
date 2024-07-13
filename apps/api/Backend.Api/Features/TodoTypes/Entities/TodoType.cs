@@ -1,6 +1,6 @@
-﻿namespace Backend.Api.Features.TaskTypes.Entities;
+﻿namespace Backend.Api.Features.TodoTypes.Entities;
 
-public class TaskType
+public class TodoType
 {
   public int Id { get; set; }
   public required string Name { get; set; }

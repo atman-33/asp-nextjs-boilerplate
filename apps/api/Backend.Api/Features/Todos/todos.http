@@ -1,0 +1,29 @@
+###
+GET http://localhost:5295
+
+###
+GET http://localhost:5295/todos
+
+###
+GET http://localhost:5295/todos/1
+
+###
+POST http://localhost:5295/todos
+Content-Type: application/json
+
+{
+  "name": "掃除",
+  "todoTypeId": 1
+}
+
+###
+PUT http://localhost:5295/todos/1
+Content-Type: application/json
+
+{
+  "name": "掃除2",
+  "todoTypeId": 1
+}
+
+###
+DELETE http://localhost:5295/todos/1
