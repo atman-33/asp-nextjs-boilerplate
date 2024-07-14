@@ -1,3 +1,4 @@
+using Backend.Api;
 using Backend.Api.Data;
 using Backend.Api.Features.Todos;
 
@@ -11,6 +12,7 @@ var app = builder.Build();
 
 // NOTE: エンドポイントを設定
 app.MapTodosEndpoints();
+app.MapTodoTypesEndpoints();
 
 // NOTE: データベースのマイグレーション
 await app.MigrateDbAsync();
