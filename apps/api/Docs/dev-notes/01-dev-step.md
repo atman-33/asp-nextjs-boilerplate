@@ -48,13 +48,17 @@ dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.7
 
 1. appssettings.json にDB接続文字列を追加
 2. Configから取得したDB接続文字列を利用するように変更
+3. EntityFrameworkCoreのinfoレベルのログを表示させないようにする。
+4. Contextを作成する。
+5. DataExtensionsを作成する（アプリ起動時のマイグレーション実行用）。
 
 ## API追加
 
 1. Entityを作成する。
 2. Dtoを作成する。
 3. Mappingを作成する。
-4. エンドポイントを作成する。
-5. DBマイグレーションファイルを作成する。
-6. DBマイグレーションを実行する。
-7. デバッグ用のリクエスト送信用httpファイルを作成する。
+4. ContextにEntityを追加する。
+5. エンドポイントを作成する。
+6. DBマイグレーションファイルを作成する。
+7. DBマイグレーションを実行する。
+8. デバッグ用のリクエスト送信用httpファイルを作成する。
