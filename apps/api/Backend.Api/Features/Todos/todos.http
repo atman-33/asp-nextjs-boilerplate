@@ -21,7 +21,7 @@ PUT http://localhost:5295/todos/1
 Content-Type: application/json
 
 {
-  "name": "掃除2",
+  "name": "買い物",
   "todoTypeId": 1
 }
 

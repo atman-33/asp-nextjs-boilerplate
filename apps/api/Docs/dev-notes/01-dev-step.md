@@ -52,6 +52,12 @@ dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.7
 4. Contextを作成する。
 5. DataExtensionsを作成する（アプリ起動時のマイグレーション実行用）。
 
+### Cors設定
+
+フロントエンドがAPIを利用できるようにCORSを設定する。
+
+`apps\api\Backend.Api\Program.cs`
+
 ## API追加
 
 1. Entityを作成する。
